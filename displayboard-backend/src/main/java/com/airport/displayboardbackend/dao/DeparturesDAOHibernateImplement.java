@@ -7,11 +7,12 @@ import javax.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.airport.displayboardbackend.entity.Departures;
 
-
+@Repository
 public class DeparturesDAOHibernateImplement implements DeparturesDAO {
 	// Define field for entity manager
 	private EntityManager entityManager;
