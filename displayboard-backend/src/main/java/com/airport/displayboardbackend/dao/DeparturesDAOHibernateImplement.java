@@ -23,7 +23,6 @@ public class DeparturesDAOHibernateImplement implements DeparturesDAO {
 	}
 
 	@Override
-	@Transactional
 	public List<Departures> findAll() {
 		// get the current hibernate session
 		Session currentSession = entityManager.unwrap(Session.class);
@@ -40,7 +39,6 @@ public class DeparturesDAOHibernateImplement implements DeparturesDAO {
 	}
 
 	@Override
-	@Transactional
 	public Departures findById(int id) {
 		// Get the current hibernate session
 		Session currentSession = entityManager.unwrap(Session.class);
