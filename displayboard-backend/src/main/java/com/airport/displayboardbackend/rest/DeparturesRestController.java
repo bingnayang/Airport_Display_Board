@@ -5,10 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.airport.displayboardbackend.dao.DeparturesDAO;
 import com.airport.displayboardbackend.entity.Departures;
 import com.airport.displayboardbackend.service.DepartureService;
 
@@ -29,7 +30,7 @@ public class DeparturesRestController {
 			return departureService.findAll();
 		}
 		
-		
+		// Mapping for GET /departures/{departureId}
 		@GetMapping("/departures/{departureId}")
 		public Departures getDeparture(@PathVariable int departureId) {
 			Departures theDeparture = departureService.findById(departureId);
@@ -40,4 +41,15 @@ public class DeparturesRestController {
 			
 			return theDeparture;
 		}
+		
+		// Mapping for POST /departures - add new departure
+		@PostMapping("/departures")
+		public Departures addDeparture(@RequestBody Departures theDeparture) {
+			// Set id to 0, this will force to save of new item instead of update
+			theDeparture.setId(0);
+			departureService.save(theDeparture);
+			
+			return theDeparture;
+		}
+		
 }
