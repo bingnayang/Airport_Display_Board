@@ -3,9 +3,11 @@ package com.airport.displayboardbackend.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,6 +52,27 @@ public class DeparturesRestController {
 			departureService.save(theDeparture);
 			
 			return theDeparture;
+		}
+		
+		// Mapping for PUT /departures - update existing departure
+		@PutMapping("/departures")
+		public Departures updateDeparture(@RequestBody Departures theDeparture) {
+
+			departureService.save(theDeparture);
+			
+			return theDeparture;
+		}
+		
+		// Mapping for DELETE /departures - delete a departure
+		@DeleteMapping("/departures/{departureId}")
+		public String deleteDeparture(@PathVariable int departureId) {
+			Departures theDeparture = departureService.findById(departureId);
+			
+			if(theDeparture == null) {
+				throw new RuntimeException("Departure Id not found - "+departureId);
+			}
+			departureService.deleteById(departureId);
+			return "Delete departure id - "+departureId;
 		}
 		
 }
