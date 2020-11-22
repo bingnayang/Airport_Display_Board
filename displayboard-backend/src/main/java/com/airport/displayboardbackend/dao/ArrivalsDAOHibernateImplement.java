@@ -4,9 +4,10 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.airport.displayboardbackend.entity.Arrivals;
 
 @Repository
@@ -22,8 +23,18 @@ public class ArrivalsDAOHibernateImplement implements ArrivalsDAO {
 	
 	@Override
 	public List<Arrivals> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		// get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// create a query
+		Query<Arrivals> theQuery =
+				currentSession.createQuery("from Arrivals", Arrivals.class);
+		
+		// execute query and get result list
+		List<Arrivals> arrivals = theQuery.getResultList();
+		
+		// return the results		
+		return arrivals;
 	}
 
 	@Override

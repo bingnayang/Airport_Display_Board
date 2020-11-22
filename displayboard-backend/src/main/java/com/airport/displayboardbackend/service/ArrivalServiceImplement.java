@@ -19,8 +19,8 @@ public class ArrivalServiceImplement implements ArrivalService {
 	
 	@Override
 	public List<Arrivals> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		// Delegate the calls to the DAO
+		return arrivalDAO.findAll();
 	}
 
 	@Override
