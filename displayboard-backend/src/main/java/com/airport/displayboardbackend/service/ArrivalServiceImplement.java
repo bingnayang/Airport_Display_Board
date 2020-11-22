@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.airport.displayboardbackend.dao.ArrivalsDAO;
 import com.airport.displayboardbackend.entity.Arrivals;
 
@@ -18,6 +20,7 @@ public class ArrivalServiceImplement implements ArrivalService {
 	}
 	
 	@Override
+	@Transactional
 	public List<Arrivals> findAll() {
 		// Delegate the calls to the DAO
 		return arrivalDAO.findAll();
@@ -25,14 +28,14 @@ public class ArrivalServiceImplement implements ArrivalService {
 
 	@Override
 	public Arrivals findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		// Delegate the calls to the DAO
+		return arrivalDAO.findById(id);
 	}
 
 	@Override
 	public void save(Arrivals theArrival) {
-		// TODO Auto-generated method stub
-
+		// Delegate the calls to the DAO
+		arrivalDAO.save(theArrival);
 	}
 
 	@Override

@@ -39,13 +39,23 @@ public class ArrivalsDAOHibernateImplement implements ArrivalsDAO {
 
 	@Override
 	public Arrivals findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Get the arrival
+		Arrivals theArrival = currentSession.get(Arrivals.class, id);
+		
+		// Return the arrival
+		return theArrival;
 	}
 
 	@Override
 	public void save(Arrivals theArrival) {
-		// TODO Auto-generated method stub
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Save departure
+		currentSession.saveOrUpdate(theArrival);
 
 	}
 
