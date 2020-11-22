@@ -1,1 +1,27 @@
-<p>departure-list works!</p>
+<div class="container">
+    <h1>Departure</h1>
+</div>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Destination</th>
+                <th>Airline</th>
+                <th>Flight</th>
+                <th>Gate</th>
+                <th>Time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let departure of departures">
+                <td>{{ departure.destination }}</td>
+                <td>{{ departure.airline }}</td>
+                <td>{{ departure.flight }}</td>
+                <td>{{ departure.gate }}</td>
+                <td>{{ departure.time }}</td>
+                <td>{{ departure.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
