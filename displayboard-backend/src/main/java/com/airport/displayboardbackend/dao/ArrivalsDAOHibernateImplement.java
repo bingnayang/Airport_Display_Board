@@ -61,7 +61,13 @@ public class ArrivalsDAOHibernateImplement implements ArrivalsDAO {
 
 	@Override
 	public void deleteById(int id) {
-		// TODO Auto-generated method stub
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Delete object with id
+		Query theQuery = currentSession.createQuery("delete from Arrivals where id=:arrivalId");
+		theQuery.setParameter("arrivalId",id);
+		theQuery.executeUpdate();
 
 	}
 

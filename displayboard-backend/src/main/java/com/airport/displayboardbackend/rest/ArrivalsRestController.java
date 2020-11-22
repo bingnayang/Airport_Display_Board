@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,7 +41,7 @@ public class ArrivalsRestController {
 	public Arrivals getArrival(@PathVariable int arrivalId) {
 		Arrivals theArrival = arrivalService.findById(arrivalId);
 		if(theArrival == null) {
-			throw new RuntimeException("Departure Id not found - "+arrivalId);
+			throw new RuntimeException("Arrival Id not found - "+arrivalId);
 		}
 		
 		return theArrival;
@@ -55,6 +56,19 @@ public class ArrivalsRestController {
 		arrivalService.save(theArrival);
 		
 		return theArrival;
+	}
+	
+	// Mapping for DELETE /arrivals/{arrivalId} - delete a arrival
+	@CrossOrigin(origins = "http://localhost:4200")
+	@DeleteMapping("/arrivals/{arrivalId}")
+	public String deleteDeparture(@PathVariable int arrivalId) {
+		Arrivals theArrival = arrivalService.findById(arrivalId);
+		
+		if(theArrival == null) {
+			throw new RuntimeException("Arrival Id not found - "+arrivalId);
+		}
+		arrivalService.deleteById(arrivalId);
+		return "Delete arrival id - "+arrivalId;
 	}
 	
 }

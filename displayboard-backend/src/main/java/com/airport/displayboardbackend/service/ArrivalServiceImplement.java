@@ -27,21 +27,24 @@ public class ArrivalServiceImplement implements ArrivalService {
 	}
 
 	@Override
+	@Transactional
 	public Arrivals findById(int id) {
 		// Delegate the calls to the DAO
 		return arrivalDAO.findById(id);
 	}
 
 	@Override
+	@Transactional
 	public void save(Arrivals theArrival) {
 		// Delegate the calls to the DAO
 		arrivalDAO.save(theArrival);
 	}
 
 	@Override
+	@Transactional
 	public void deleteById(int id) {
-		// TODO Auto-generated method stub
-
+		// Delegate the calls to the DAO
+		arrivalDAO.deleteById(id);
 	}
 
 }
