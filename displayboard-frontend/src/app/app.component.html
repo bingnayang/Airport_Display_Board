@@ -1,20 +1,37 @@
-<div class="container text-center">
-  <h1>Airline Display Board</h1>
-  <ul>
-    <li>
-      <a routerLink="" routerLinkActive="active">Home</a>
-    </li>
-    <li>
-      <a routerLink="create-departure" routerLinkActive="active">Add New Departure</a>
-    </li>
-    <li>
-      <a routerLink="departures" routerLinkActive="active">Departure</a>
-    </li>
-    <li>
-      <a routerLink="arrivals" routerLinkActive="active">Arrival</a>
-    </li>
-  </ul>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">AirPort Display Board</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="" routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Departure
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="departures" routerLinkActive="active">Departure Board</a>
+          <a class="dropdown-item" routerLink="create-departure" routerLinkActive="active">Create New Departure</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Arrival
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="arrivals" routerLinkActive="active">Arrival Board</a>
+          <a class="dropdown-item" routerLink="create-arrival" routerLinkActive="active">Create New Arrival</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+
+
