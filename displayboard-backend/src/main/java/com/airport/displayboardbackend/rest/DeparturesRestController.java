@@ -47,6 +47,7 @@ public class DeparturesRestController {
 		}
 		
 		// Mapping for POST /departures - add new departure
+		@CrossOrigin(origins = "http://localhost:4200")
 		@PostMapping("/departures")
 		public Departures addDeparture(@RequestBody Departures theDeparture) {
 			// Set id to 0, this will force to save of new item instead of update

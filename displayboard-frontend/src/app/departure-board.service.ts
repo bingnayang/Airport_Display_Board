@@ -14,4 +14,9 @@ export class DepartureBoardService {
   getDepartureList(): Observable<DepartureBoard[]>{
     return this.httpClient.get<DepartureBoard[]>(`${this.baseURL}`)
   }
+
+  createDeparture( departure: DepartureBoard ): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}`,departure);
+  }
+
 }
