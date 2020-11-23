@@ -2,12 +2,19 @@
   <h1>Airline Display Board</h1>
   <ul>
     <li>
+      <a routerLink="" routerLinkActive="active">Home</a>
+    </li>
+    <li>
       <a routerLink="create-departure" routerLinkActive="active">Add New Departure</a>
+    </li>
+    <li>
+      <a routerLink="departures" routerLinkActive="active">Departure</a>
+    </li>
+    <li>
+      <a routerLink="arrivals" routerLinkActive="active">Arrival</a>
     </li>
   </ul>
 </div>
 <div class="container">
   <router-outlet></router-outlet>
-  <app-departure-list></app-departure-list>
-  <app-arrival-list></app-arrival-list>
 </div>
