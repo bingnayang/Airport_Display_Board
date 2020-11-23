@@ -1,1 +1,19 @@
-<p>create-departure works!</p>
+<h2>Create New Departure</h2>
+
+<div class="container">
+    <form (ngSubmit) = "onSubmit()">
+        <input type="text" class="form-control" placeholder="Destination" id="destination"
+            [(ngModel)] = "departure.destination" name="destination">
+        <input type="text" class="form-control" placeholder="Airline" id="airline"
+            [(ngModel)] = "departure.airline" name="airline">
+        <input type="text" class="form-control" placeholder="Flight" id="flight"
+            [(ngModel)] = "departure.flight" name="flight">
+        <input type="text" class="form-control" placeholder="Time" id="time"
+            [(ngModel)] = "departure.time" name="time">
+        <input type="text" class="form-control" placeholder="Gate" id="gate"
+            [(ngModel)] = "departure.gate" name="gate">
+        <input type="text" class="form-control" placeholder="Status" id="status"
+            [(ngModel)] = "departure.status" name="status">
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+</div>

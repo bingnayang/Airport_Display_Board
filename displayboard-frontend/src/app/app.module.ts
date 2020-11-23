@@ -7,6 +7,7 @@ import { DepartureListComponent } from './departure-list/departure-list.componen
 import { BoardListComponent } from './board-list/board-list.component';
 import { ArrivalListComponent } from './arrival-list/arrival-list.component';
 import { CreateDepartureComponent } from './create-departure/create-departure.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CreateDepartureComponent } from './create-departure/create-departure.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
