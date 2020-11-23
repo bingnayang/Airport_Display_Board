@@ -7,7 +7,7 @@ import { DepartureBoard } from './departure-board';
   providedIn: 'root'
 })
 export class DepartureBoardService {
-  private baseURL = "http://localhost:8080/api//departures"
+  private baseURL = "http://localhost:8080/api/departures"
 
   constructor(private httpClient: HttpClient) { }
 

@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Arrival</h1>
+</div>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Origin</th>
+                <th>Airline</th>
+                <th>Flight</th>
+                <th>Scheduled Time</th>
+                <th>Estimate Time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let arrival of arrivals">
+                <td>{{ arrival.origin }}</td>
+                <td>{{ arrival.airline }}</td>
+                <td>{{ arrival.flight }}</td>
+                <td>{{ arrival.scheduledTime }}</td>
+                <td>{{ arrival.estimateTime }}</td>
+                <td>{{ arrival.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
