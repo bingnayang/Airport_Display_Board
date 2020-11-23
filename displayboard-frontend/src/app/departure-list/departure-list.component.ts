@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DepartureBoard } from '../departure-board';
 import { DepartureBoardService } from '../departure-board.service'
 
@@ -10,7 +11,7 @@ import { DepartureBoardService } from '../departure-board.service'
 export class DepartureListComponent implements OnInit {
   departures: DepartureBoard[];
 
-  constructor(private departureService: DepartureBoardService) { }
+  constructor(private departureService: DepartureBoardService, private router: Router) { }
 
   ngOnInit(): void {
     this.getDepartures();
@@ -21,4 +22,7 @@ export class DepartureListComponent implements OnInit {
     })
   }
 
+  updateDeparture(id: number){
+    this.router.navigate(['update-departure', id]);
+  }
 }
