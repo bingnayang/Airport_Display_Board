@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { DepartureListComponent } from './departure-list/departure-list.component';
 import { BoardListComponent } from './board-list/board-list.component';
 import { ArrivalListComponent } from './arrival-list/arrival-list.component';
+import { CreateDepartureComponent } from './create-departure/create-departure.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DepartureListComponent,
     BoardListComponent,
-    ArrivalListComponent
+    ArrivalListComponent,
+    CreateDepartureComponent
   ],
   imports: [
     BrowserModule,

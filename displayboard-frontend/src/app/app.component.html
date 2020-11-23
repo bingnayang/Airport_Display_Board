@@ -1,7 +1,13 @@
 <div class="container text-center">
   <h1>Airline Display Board</h1>
+  <ul>
+    <li>
+      <a routerLink="create-departure" routerLinkActive="active">Add New Departure</a>
+    </li>
+  </ul>
 </div>
 <div class="container">
+  <router-outlet></router-outlet>
   <app-departure-list></app-departure-list>
   <app-arrival-list></app-arrival-list>
 </div>
