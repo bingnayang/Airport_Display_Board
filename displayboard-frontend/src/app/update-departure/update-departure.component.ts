@@ -30,4 +30,5 @@ export class UpdateDepartureComponent implements OnInit {
   goToDepartureList(){
     this.router.navigate(['/departures']);
   }
+  
 }
