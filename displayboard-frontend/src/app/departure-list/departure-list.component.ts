@@ -25,4 +25,11 @@ export class DepartureListComponent implements OnInit {
   updateDeparture(id: number){
     this.router.navigate(['update-departure', id]);
   }
+  
+  deleteDeparture(id: number){
+    this.departureService.deleteDeparture(id).subscribe(data => {
+      console.log(data);
+      this.getDepartures();
+    });
+  }
 }

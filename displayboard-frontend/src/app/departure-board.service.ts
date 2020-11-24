@@ -27,4 +27,7 @@ export class DepartureBoardService {
     return this.httpClient.put(`${this.baseURL}`, departure);
   }
 
+  deleteDeparture(id: number): Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}/${id}`,{responseType: 'text'});
+  }
 }
