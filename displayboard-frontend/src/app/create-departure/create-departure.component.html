@@ -1,7 +1,10 @@
-<div class="card">
-    <h5 class="card-header bg-light">Create New Departure</h5>
+<div class="container">
+  <h1 class="text-warning">Create New Departure</h1>
+</div>
+<div class="container">
+  <div class="card bg-light" style="border: none;">
     <div class="card-body">
-        <div class="container">
+        <div class="container-fluid">
             <form (ngSubmit) = "onSubmit()">
                 <div class="form-group row">
                   <label for="airline" class="col-sm-2 col-form-label">Airline</label>
@@ -45,9 +48,11 @@
                       [(ngModel)] = "departure.status" name="status">
                     </div>
                 </div>
-                <button class="btn btn-primary btn-block" type="submit">Submit</button>
+                <button class="btn btn-primary btn-block" type="submit" style="background-color: #0455bb;">Submit</button>
             </form>
         </div>
     </div>
 </div>
+</div>
+
 
