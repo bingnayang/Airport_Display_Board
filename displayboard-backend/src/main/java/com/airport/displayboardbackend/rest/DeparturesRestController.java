@@ -35,6 +35,7 @@ public class DeparturesRestController {
 		}
 		
 		// Mapping for GET /departures/{departureId}
+		@CrossOrigin(origins = "http://localhost:4200")
 		@GetMapping("/departures/{departureId}")
 		public Departures getDeparture(@PathVariable int departureId) {
 			Departures theDeparture = departureService.findById(departureId);
@@ -58,6 +59,7 @@ public class DeparturesRestController {
 		}
 		
 		// Mapping for PUT /departures - update existing departure
+		@CrossOrigin(origins = "http://localhost:4200")
 		@PutMapping("/departures")
 		public Departures updateDeparture(@RequestBody Departures theDeparture) {
 
@@ -67,6 +69,7 @@ public class DeparturesRestController {
 		}
 		
 		// Mapping for DELETE /departures - delete a departure
+		@CrossOrigin(origins = "http://localhost:4200")
 		@DeleteMapping("/departures/{departureId}")
 		public String deleteDeparture(@PathVariable int departureId) {
 			Departures theDeparture = departureService.findById(departureId);
