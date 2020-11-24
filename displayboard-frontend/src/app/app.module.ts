@@ -9,6 +9,7 @@ import { ArrivalListComponent } from './arrival-list/arrival-list.component';
 import { CreateDepartureComponent } from './create-departure/create-departure.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateDepartureComponent } from './update-departure/update-departure.component';
+import { CreateArrivalComponent } from './create-arrival/create-arrival.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { UpdateDepartureComponent } from './update-departure/update-departure.co
     BoardListComponent,
     ArrivalListComponent,
     CreateDepartureComponent,
-    UpdateDepartureComponent
+    UpdateDepartureComponent,
+    CreateArrivalComponent
   ],
   imports: [
     BrowserModule,

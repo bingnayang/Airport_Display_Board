@@ -4,13 +4,15 @@ import { DepartureListComponent } from './departure-list/departure-list.componen
 import { CreateDepartureComponent } from './create-departure/create-departure.component';
 import { ArrivalListComponent } from './arrival-list/arrival-list.component';
 import { UpdateDepartureComponent } from './update-departure/update-departure.component';
+import { CreateArrivalComponent } from './create-arrival/create-arrival.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'app',pathMatch:'full'},
   {path: 'departures', component: DepartureListComponent},
-  {path: 'arrivals', component: ArrivalListComponent},
   {path: 'create-departure', component: CreateDepartureComponent},
-  {path: 'update-departure/:id', component: UpdateDepartureComponent}
+  {path: 'update-departure/:id', component: UpdateDepartureComponent},
+  {path: 'arrivals', component: ArrivalListComponent},
+  {path: 'create-arrival', component: CreateArrivalComponent}
 ];
 
 @NgModule({

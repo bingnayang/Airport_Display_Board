@@ -1,0 +1,57 @@
+
+<div class="container">
+    <h1 class="text-warning">Create New Arrival</h1>
+  </div>
+  <div class="container">
+    <div class="card bg-light" style="border: none;">
+      <div class="card-body">
+          <div class="container-fluid">
+              <form (ngSubmit) = "onSubmit()">
+                  <div class="form-group row">
+                    <label for="airline" class="col-sm-2 col-form-label">Airline</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="airline"
+                      [(ngModel)] = "arrival.airline" name="airline">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="flight" class="col-sm-2 col-form-label">Flight</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="flight"
+                      [(ngModel)] = "arrival.flight" name="flight">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="origin" class="col-sm-2 col-form-label">Origin</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="origin"
+                        [(ngModel)] = "arrival.origin" name="origin">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="scheduledTime" class="col-sm-2 col-form-label">Scheduled Time</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="scheduledTime"
+                        [(ngModel)] = "arrival.scheduledTime" name="scheduledTime">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="estimateTime" class="col-sm-2 col-form-label">Estimate Time</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="estimateTime"
+                        [(ngModel)] = "arrival.estimateTime" name="estimateTime">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="status" class="col-sm-2 col-form-label">Status</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="status"
+                        [(ngModel)] = "arrival.status" name="status">
+                      </div>
+                  </div>
+                  <button class="btn btn-primary btn-block" type="submit" style="background-color: #0455bb;">Submit</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
