@@ -10,6 +10,7 @@ import { CreateDepartureComponent } from './create-departure/create-departure.co
 import { FormsModule } from '@angular/forms';
 import { UpdateDepartureComponent } from './update-departure/update-departure.component';
 import { CreateArrivalComponent } from './create-arrival/create-arrival.component';
+import { UpdateArrivalComponent } from './update-arrival/update-arrival.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CreateArrivalComponent } from './create-arrival/create-arrival.componen
     ArrivalListComponent,
     CreateDepartureComponent,
     UpdateDepartureComponent,
-    CreateArrivalComponent
+    CreateArrivalComponent,
+    UpdateArrivalComponent
   ],
   imports: [
     BrowserModule,

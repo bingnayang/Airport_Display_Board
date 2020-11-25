@@ -21,7 +21,7 @@ export class UpdateDepartureComponent implements OnInit {
     }, error => console.log(error));
   }
   onSubmit(){
-    this.departureService.updateEmployee(this.id, this.departure).subscribe( data =>{
+    this.departureService.updateDeparture(this.id, this.departure).subscribe( data =>{
       this.goToDepartureList();
     }
     , error => console.log(error));

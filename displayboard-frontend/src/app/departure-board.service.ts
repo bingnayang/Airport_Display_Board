@@ -23,7 +23,7 @@ export class DepartureBoardService {
     return this.httpClient.get<DepartureBoard>(`${this.baseURL}/${id}`);
   }
 
-  updateEmployee(id: number, departure: DepartureBoard): Observable<Object>{
+  updateDeparture(id: number, departure: DepartureBoard): Observable<Object>{
     return this.httpClient.put(`${this.baseURL}`, departure);
   }
 

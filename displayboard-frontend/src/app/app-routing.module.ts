@@ -5,6 +5,7 @@ import { CreateDepartureComponent } from './create-departure/create-departure.co
 import { ArrivalListComponent } from './arrival-list/arrival-list.component';
 import { UpdateDepartureComponent } from './update-departure/update-departure.component';
 import { CreateArrivalComponent } from './create-arrival/create-arrival.component';
+import { UpdateArrivalComponent } from './update-arrival/update-arrival.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'app',pathMatch:'full'},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'create-departure', component: CreateDepartureComponent},
   {path: 'update-departure/:id', component: UpdateDepartureComponent},
   {path: 'arrivals', component: ArrivalListComponent},
-  {path: 'create-arrival', component: CreateArrivalComponent}
+  {path: 'create-arrival', component: CreateArrivalComponent},
+  {path: 'update-arrival/:id', component: UpdateArrivalComponent}
 ];
 
 @NgModule({

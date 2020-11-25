@@ -11,6 +11,10 @@ export class ArrivalBoardService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getArrivalById(id: number): Observable<ArrivalBoard>{
+    return this.httpClient.get<ArrivalBoard>(`${this.baseURL}/${id}`);
+  }
+
   getArrivalList(): Observable<ArrivalBoard[]>{
     return this.httpClient.get<ArrivalBoard[]>(`${this.baseURL}`)
   }
@@ -18,4 +22,9 @@ export class ArrivalBoardService {
   createArrival(arrival: ArrivalBoard): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}`,arrival);
   }
+
+  updateArrival(id: number, arrival: ArrivalBoard): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}`,arrival)
+  }
+
 }
