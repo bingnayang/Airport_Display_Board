@@ -14,4 +14,8 @@ export class ArrivalBoardService {
   getArrivalList(): Observable<ArrivalBoard[]>{
     return this.httpClient.get<ArrivalBoard[]>(`${this.baseURL}`)
   }
+
+  createArrival(arrival: ArrivalBoard): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}`,arrival);
+  }
 }
