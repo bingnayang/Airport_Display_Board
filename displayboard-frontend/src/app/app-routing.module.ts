@@ -6,9 +6,11 @@ import { ArrivalListComponent } from './arrival-list/arrival-list.component';
 import { UpdateDepartureComponent } from './update-departure/update-departure.component';
 import { CreateArrivalComponent } from './create-arrival/create-arrival.component';
 import { UpdateArrivalComponent } from './update-arrival/update-arrival.component';
+import { BoardListComponent } from './board-list/board-list.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'app',pathMatch:'full'},
+  // {path: '', redirectTo: 'app',pathMatch:'full'},
+  {path: '', component: BoardListComponent},
   {path: 'departures', component: DepartureListComponent},
   {path: 'create-departure', component: CreateDepartureComponent},
   {path: 'update-departure/:id', component: UpdateDepartureComponent},
