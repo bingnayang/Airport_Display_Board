@@ -27,4 +27,11 @@ export class ArrivalListComponent implements OnInit {
 
   }
 
+  deleteArrival(id: number){
+    this.arrivalService.deleteArrival(id).subscribe(data => {
+      console.log(data);
+      this.getArrivals();
+    });
+  }
+
 }

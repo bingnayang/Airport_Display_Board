@@ -27,4 +27,7 @@ export class ArrivalBoardService {
     return this.httpClient.put(`${this.baseURL}`,arrival)
   }
 
+  deleteArrival(id: number): Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}/${id}`,{responseType: 'text'});
+  }
 }
