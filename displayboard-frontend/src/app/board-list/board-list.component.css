@@ -1,3 +1,14 @@
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
     background-color: #e4eef5;
  }
+span{
+    margin: 5px;
+}
+ .title{
+    font-size: 60px;
+    font-weight: 150;
+    background-color: #165394;
+    width: 55px;
+    text-align: center;
+    color: #ffc107;
+ }
