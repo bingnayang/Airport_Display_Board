@@ -29,7 +29,7 @@ public class DeparturesDAOHibernateImplement implements DeparturesDAO {
 		
 		// create a query
 		Query<Departures> theQuery =
-				currentSession.createQuery("from Departures", Departures.class);
+				currentSession.createQuery("from Departures departure ORDER by departure.airline", Departures.class);
 		
 		// execute query and get result list
 		List<Departures> departures = theQuery.getResultList();

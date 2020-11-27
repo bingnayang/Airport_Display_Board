@@ -28,7 +28,7 @@ public class ArrivalsDAOHibernateImplement implements ArrivalsDAO {
 		
 		// create a query
 		Query<Arrivals> theQuery =
-				currentSession.createQuery("from Arrivals", Arrivals.class);
+				currentSession.createQuery("from Arrivals arrival ORDER by arrival.airline", Arrivals.class);
 		
 		// execute query and get result list
 		List<Arrivals> arrivals = theQuery.getResultList();
