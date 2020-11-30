@@ -1,5 +1,7 @@
 package com.airport.displayboardbackend.dao;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -32,6 +34,13 @@ public class ArrivalsDAOHibernateImplement implements ArrivalsDAO {
 		
 		// execute query and get result list
 		List<Arrivals> arrivals = theQuery.getResultList();
+		for(Arrivals temp : arrivals) {
+			String scheduledTime = LocalTime.parse(temp.getScheduledTime(), DateTimeFormatter.ofPattern("HH:mm")).format(DateTimeFormatter.ofPattern("hh:mm a"));
+			String estimateTime = LocalTime.parse(temp.getEstimateTime(), DateTimeFormatter.ofPattern("HH:mm")).format(DateTimeFormatter.ofPattern("hh:mm a"));
+
+			temp.setScheduledTime(scheduledTime);
+			temp.setEstimateTime(estimateTime);
+		}
 		
 		// return the results		
 		return arrivals;
