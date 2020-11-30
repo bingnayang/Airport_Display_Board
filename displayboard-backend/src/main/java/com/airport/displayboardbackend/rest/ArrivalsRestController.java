@@ -53,7 +53,7 @@ public class ArrivalsRestController {
 	// Mapping for PUT /arrivals - update existing arrival
 	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/arrivals")
-	public Arrivals updateDeparture(@RequestBody Arrivals theDeparture) {
+	public Arrivals updateArrival(@RequestBody Arrivals theDeparture) {
 
 		arrivalService.save(theDeparture);
 		
@@ -69,10 +69,11 @@ public class ArrivalsRestController {
 
 		String scheduledTime = LocalTime.parse(theArrival.getScheduledTime(), DateTimeFormatter.ofPattern("HH:mm")).format(DateTimeFormatter.ofPattern("hh:mm a"));
 		String estimateTime = LocalTime.parse(theArrival.getEstimateTime(), DateTimeFormatter.ofPattern("HH:mm")).format(DateTimeFormatter.ofPattern("hh:mm a"));
-
+		String originName = theArrival.getOrigin().substring(0, 1).toUpperCase() + theArrival.getOrigin().substring(1).toLowerCase();
+		
 		theArrival.setScheduledTime(scheduledTime);
 		theArrival.setEstimateTime(estimateTime);
-		
+		theArrival.setOrigin(originName);
 		arrivalService.save(theArrival);
 		
 		return theArrival;

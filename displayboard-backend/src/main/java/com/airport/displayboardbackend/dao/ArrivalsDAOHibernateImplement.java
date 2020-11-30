@@ -1,11 +1,7 @@
 package com.airport.displayboardbackend.dao;
 
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-
 import javax.persistence.EntityManager;
-
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
