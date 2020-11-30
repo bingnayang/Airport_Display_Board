@@ -24,7 +24,6 @@ export class ArrivalListComponent implements OnInit {
 
   updateArrival(id: number){
     this.router.navigate(['update-arrival',id]);
-
   }
 
   deleteArrival(id: number){
