@@ -47,17 +47,21 @@ public class ArrivalsRestController {
 			throw new RuntimeException("Arrival Id not found - "+arrivalId);
 		}
 		
+		String estimateTime = LocalTime.parse(theArrival.getEstimateTime(), DateTimeFormatter.ofPattern("hh:mm a")).format(DateTimeFormatter.ofPattern("HH:mm"));		
+		theArrival.setEstimateTime(estimateTime);
+		
 		return theArrival;
 	}
 	
 	// Mapping for PUT /arrivals - update existing arrival
 	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/arrivals")
-	public Arrivals updateArrival(@RequestBody Arrivals theDeparture) {
-
-		arrivalService.save(theDeparture);
+	public Arrivals updateArrival(@RequestBody Arrivals theArrival) {
+		String estimateTime = LocalTime.parse(theArrival.getEstimateTime(), DateTimeFormatter.ofPattern("HH:mm")).format(DateTimeFormatter.ofPattern("hh:mm a"));		
+		theArrival.setEstimateTime(estimateTime);
+		arrivalService.save(theArrival);
 		
-		return theDeparture;
+		return theArrival;
 	}
 	
 	// Mapping for POST /arrivals - add new arrival
