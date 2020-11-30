@@ -1,5 +1,7 @@
 package com.airport.displayboardbackend.rest;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,9 +63,16 @@ public class ArrivalsRestController {
 	// Mapping for POST /arrivals - add new arrival
 	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/arrivals")
-	public Arrivals addDeparture(@RequestBody Arrivals theArrival) {
+	public Arrivals addArrival(@RequestBody Arrivals theArrival) {
 		// Set id to 0, this will force to save of new item instead of update
 		theArrival.setId(0);
+
+		String scheduledTime = LocalTime.parse(theArrival.getScheduledTime(), DateTimeFormatter.ofPattern("HH:mm")).format(DateTimeFormatter.ofPattern("hh:mm a"));
+		String estimateTime = LocalTime.parse(theArrival.getEstimateTime(), DateTimeFormatter.ofPattern("HH:mm")).format(DateTimeFormatter.ofPattern("hh:mm a"));
+
+		theArrival.setScheduledTime(scheduledTime);
+		theArrival.setEstimateTime(estimateTime);
+		
 		arrivalService.save(theArrival);
 		
 		return theArrival;
@@ -72,7 +81,7 @@ public class ArrivalsRestController {
 	// Mapping for DELETE /arrivals/{arrivalId} - delete a arrival
 	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/arrivals/{arrivalId}")
-	public String deleteDeparture(@PathVariable int arrivalId) {
+	public String deleteArrival(@PathVariable int arrivalId) {
 		Arrivals theArrival = arrivalService.findById(arrivalId);
 		
 		if(theArrival == null) {
