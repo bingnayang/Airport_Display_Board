@@ -6,4 +6,8 @@ export class ArrivalBoard {
     status: string;
     airline: string;
     flight: string;
+
+    set airlineName(name: string){
+        this.airline = name;
+    }
 }

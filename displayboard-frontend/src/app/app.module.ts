@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';  
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { UpdateDepartureComponent } from './update-departure/update-departure.component';
 import { CreateArrivalComponent } from './create-arrival/create-arrival.component';
 import { UpdateArrivalComponent } from './update-arrival/update-arrival.component';
+
 
 @NgModule({
   declarations: [
