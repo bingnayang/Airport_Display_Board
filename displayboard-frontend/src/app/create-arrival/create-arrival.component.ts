@@ -3,6 +3,7 @@ import { ArrivalBoard } from '../arrival-board';
 import { ArrivalBoardService } from '../arrival-board.service';
 import { Router } from '@angular/router';
 import { ArrivalStatus } from '../arrival-list/class/arrival-status';
+import { Airport } from '../airport';
 
 @Component({
   selector: 'app-create-arrival',
@@ -11,6 +12,7 @@ import { ArrivalStatus } from '../arrival-list/class/arrival-status';
 })
 export class CreateArrivalComponent implements OnInit {
   arrival: ArrivalBoard = new ArrivalBoard();
+  airportCity: Airport[];
 
   private airlineFlight = new Map<string, string[]>([
     ['Alaska', ['AS4585', 'AS1047','AS3934','AS0475','AS7930']],
@@ -37,12 +39,19 @@ export class CreateArrivalComponent implements OnInit {
   constructor(private arrivalService: ArrivalBoardService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getAirportCities();
   }
 
   saveArrival(){
     this.arrivalService.createArrival(this.arrival).subscribe(data => {
       this.goToArrivalList();
     },error => console.log(error));
+  }
+
+  private getAirportCities(){
+    this.arrivalService.getAirportCityList().subscribe(data => {
+      this.airportCity = data;
+    })
   }
 
   goToArrivalList(){

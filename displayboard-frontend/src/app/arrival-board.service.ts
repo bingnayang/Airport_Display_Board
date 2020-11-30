@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ArrivalBoard } from './arrival-board';
+import { Airport } from './airport';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArrivalBoardService {
   private baseURL = "http://localhost:8080/api/arrivals"
+  private baseURLAirport = "http://localhost:8080/api/cities"
 
   constructor(private httpClient: HttpClient) { }
 
@@ -29,5 +31,10 @@ export class ArrivalBoardService {
 
   deleteArrival(id: number): Observable<Object>{
     return this.httpClient.delete(`${this.baseURL}/${id}`,{responseType: 'text'});
+  }
+
+
+  getAirportCityList(): Observable<Airport[]>{
+    return this.httpClient.get<Airport[]>(`${this.baseURLAirport}`)
   }
 }
