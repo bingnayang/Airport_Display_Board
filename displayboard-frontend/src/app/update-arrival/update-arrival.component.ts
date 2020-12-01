@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ArrivalBoard } from '../arrival-board';
 import { ArrivalBoardService } from '../arrival-board.service';
 import { Router } from '@angular/router';
-import { Airport } from '../airport';
 import { ArrivalStatus } from '../arrival-list/class/arrival-status';
 
 @Component({

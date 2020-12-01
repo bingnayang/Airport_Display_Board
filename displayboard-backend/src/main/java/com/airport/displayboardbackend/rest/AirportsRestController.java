@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.airport.displayboardbackend.entity.Airports;
+import com.airport.displayboardbackend.entity.Gates;
 import com.airport.displayboardbackend.service.AirportService;
 
 
@@ -24,10 +25,17 @@ public class AirportsRestController {
 		airportService = theAirportService;
 	}
 	
-	// Mapping for GET /arrivals - get all arrival list
+	// Mapping for GET /cities - get all city list
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/cities")
-	public List<Airports> findAll(){
+	public List<Airports> findAllCities(){
 		return airportService.findCities();
+	}
+	
+	// Mapping for GET /gates - get all gate list
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("/gates")
+	public List<Gates> findAllGates(){
+		return airportService.findGates();
 	}
 }

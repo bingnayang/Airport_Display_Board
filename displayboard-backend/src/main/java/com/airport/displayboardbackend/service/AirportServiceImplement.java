@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.airport.displayboardbackend.dao.AirportsDAO;
 import com.airport.displayboardbackend.entity.Airports;
+import com.airport.displayboardbackend.entity.Gates;
 
 @Service
 public class AirportServiceImplement implements AirportService {
@@ -25,6 +26,12 @@ public class AirportServiceImplement implements AirportService {
 	public List<Airports> findCities() {
 		// Delegate the calls to the DAO
 		return airportDAO.findCities();
+	}
+
+	@Override
+	public List<Gates> findGates() {
+		// TODO Auto-generated method stub
+		return airportDAO.findGates();
 	}
 
 }

@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.airport.displayboardbackend.entity.Airports;
+import com.airport.displayboardbackend.entity.Gates;
 
 
 @Repository
@@ -36,6 +37,22 @@ public class AirportsDAOImplement implements AirportsDAO {
 		
 		// return the results		
 		return airport;
+	}
+
+	@Override
+	public List<Gates> findGates() {
+		// get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// create a query
+		Query<Gates> theQuery =
+				currentSession.createQuery("from Gates", Gates.class);
+		
+		// execute query and get result list
+		List<Gates> gate = theQuery.getResultList();
+		
+		// return the results		
+		return gate;
 	}
 
 }
