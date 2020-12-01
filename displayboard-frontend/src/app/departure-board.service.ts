@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { DepartureBoard } from './departure-board';
 import { Airport } from './airport';
+import { AirportGate } from './airport-gate';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { Airport } from './airport';
 export class DepartureBoardService {
   private baseURL = "http://localhost:8080/api/departures"
   private baseURLAirport = "http://localhost:8080/api/cities"
+  private baseURLGate = "http://localhost:8080/api/gates"
 
   constructor(private httpClient: HttpClient) { }
 
@@ -35,5 +37,9 @@ export class DepartureBoardService {
 
   getAirportCityList(): Observable<Airport[]>{
     return this.httpClient.get<Airport[]>(`${this.baseURLAirport}`)
+  }
+
+  getAirportGateList(): Observable<AirportGate[]>{
+    return this.httpClient.get<AirportGate[]>(`${this.baseURLGate}`)
   }
 }

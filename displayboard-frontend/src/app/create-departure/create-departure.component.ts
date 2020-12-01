@@ -14,6 +14,7 @@ import { AirportGate  } from '../airport-gate';
 export class CreateDepartureComponent implements OnInit {
   departure: DepartureBoard = new DepartureBoard();
   airportCity: Airport[];
+  airportGate: AirportGate[];
   airline: string;
   flight: string;
   private airlineFlight = new Map<string, string[]>([
@@ -32,28 +33,12 @@ export class CreateDepartureComponent implements OnInit {
     {status: 'Cancelled'},
     {status: 'Boarding'}
   ]
-  gate: AirportGate [] = [
-    {gate: 'A01'},
-    {gate: 'A02'},
-    {gate: 'A03'},
-    {gate: 'A04'},
-    {gate: 'A05'},
-    {gate: 'B01'},
-    {gate: 'B02'},
-    {gate: 'B03'},
-    {gate: 'B04'},
-    {gate: 'B05'},
-    {gate: 'C01'},
-    {gate: 'C02'},
-    {gate: 'C03'},
-    {gate: 'C04'},
-    {gate: 'C05'}
-  ]
 
   constructor(private departureService: DepartureBoardService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAirportCities();
+    this.getAirportGates();
   }
 
   saveDeparture(){
@@ -66,6 +51,12 @@ export class CreateDepartureComponent implements OnInit {
   private getAirportCities(){
     this.departureService.getAirportCityList().subscribe(data => {
       this.airportCity = data;
+    })
+  }
+
+  private getAirportGates(){
+    this.departureService.getAirportGateList().subscribe(data => {
+      this.airportGate = data;
     })
   }
 

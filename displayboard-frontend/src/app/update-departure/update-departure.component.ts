@@ -13,6 +13,7 @@ import { AirportGate } from '../airport-gate';
 export class UpdateDepartureComponent implements OnInit {
   id: number;
   departure: DepartureBoard = new DepartureBoard();
+  airportGate: AirportGate[];
 
   status: DepartureStatus[] = [
     {status: 'Delayed'},
@@ -20,28 +21,12 @@ export class UpdateDepartureComponent implements OnInit {
     {status: 'Cancelled'},
     {status: 'Boarding'}
   ]
-  gate: AirportGate [] = [
-    {gate: 'A01'},
-    {gate: 'A02'},
-    {gate: 'A03'},
-    {gate: 'A04'},
-    {gate: 'A05'},
-    {gate: 'B01'},
-    {gate: 'B02'},
-    {gate: 'B03'},
-    {gate: 'B04'},
-    {gate: 'B05'},
-    {gate: 'C01'},
-    {gate: 'C02'},
-    {gate: 'C03'},
-    {gate: 'C04'},
-    {gate: 'C05'}
-  ]
 
   constructor(private departureService: DepartureBoardService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+    this.getAirportGates();
     this.departureService.getDepartureById(this.id).subscribe(data => {
       this.departure = data;
     }, error => console.log(error));
@@ -55,6 +40,12 @@ export class UpdateDepartureComponent implements OnInit {
 
   goToDepartureList(){
     this.router.navigate(['/departures']);
+  }
+
+  private getAirportGates(){
+    this.departureService.getAirportGateList().subscribe(data => {
+      this.airportGate = data;
+    })
   }
   
 }

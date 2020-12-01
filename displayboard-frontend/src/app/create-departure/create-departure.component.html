@@ -36,9 +36,9 @@
           <div class="form-group row">
             <label for="origin" class="col-sm-2 col-form-label">Gate</label>
             <div class="col-sm-10">
-              <select class="form-control" id="origin" name="origin" [(ngModel)]="departure.gate">
+              <select class="form-control" id="origin" name="origin" [(ngModel)] = "departure.gate">
                 <option [ngValue]="null" disabled>Choose your Origin</option>
-                <option *ngFor="let number of gate" [value]="number.gate">{{ number.gate }}</option>
+                <option *ngFor="let number of airportGate" [value]="number.gate">{{ number.gate }}</option>
               </select>
             </div>
           </div>
