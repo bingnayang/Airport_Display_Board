@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { DepartureBoard } from '../departure-board';
 import { DepartureBoardService } from '../departure-board.service';
 import { Airport } from '../airport';
-import { DepartureStatus } from './class/departure-status';
+import { DepartureStatus } from '../departure-list/class/departure-status';
 import { AirportGate  } from '../airport-gate';
 
 @Component({

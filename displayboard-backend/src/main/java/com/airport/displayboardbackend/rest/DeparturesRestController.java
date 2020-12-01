@@ -1,5 +1,7 @@
 package com.airport.displayboardbackend.rest;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +55,10 @@ public class DeparturesRestController {
 		public Departures addDeparture(@RequestBody Departures theDeparture) {
 			// Set id to 0, this will force to save of new item instead of update
 			theDeparture.setId(0);
+			
+			String time = LocalTime.parse(theDeparture.getTime(), DateTimeFormatter.ofPattern("HH:mm")).format(DateTimeFormatter.ofPattern("hh:mm a"));			
+			theDeparture.setTime(time);
+			
 			departureService.save(theDeparture);
 			
 			return theDeparture;
