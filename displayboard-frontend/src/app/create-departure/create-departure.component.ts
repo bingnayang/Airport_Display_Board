@@ -15,8 +15,10 @@ export class CreateDepartureComponent implements OnInit {
   departure: DepartureBoard = new DepartureBoard();
   airportCity: Airport[];
   airportGate: AirportGate[];
+  departureStatus: DepartureStatus[];
   airline: string;
   flight: string;
+
   private airlineFlight = new Map<string, string[]>([
     ['Alaska', ['AS4585', 'AS1047','AS3934','AS0475','AS7930']],
     ['American', ['AA1075', 'AA2583','AA9638','AA2957','AA2965']],
@@ -27,18 +29,13 @@ export class CreateDepartureComponent implements OnInit {
     ['Spirit',['NK4856','NK3729','NK2174','NK1846','NK3846']],
     ['United',['UA0857','UA2784','UA1746','UA7427','UA4729']]
   ])
-  status: DepartureStatus[] = [
-    {status: 'Delayed'},
-    {status: 'On-Time'},
-    {status: 'Cancelled'},
-    {status: 'Boarding'}
-  ]
 
   constructor(private departureService: DepartureBoardService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAirportCities();
     this.getAirportGates();
+    this.getDepartureStatus();
   }
 
   saveDeparture(){
@@ -57,6 +54,12 @@ export class CreateDepartureComponent implements OnInit {
   private getAirportGates(){
     this.departureService.getAirportGateList().subscribe(data => {
       this.airportGate = data;
+    })
+  }
+
+  private getDepartureStatus(){
+    this.departureService.getDepartureStatusList().subscribe(data => {
+      this.departureStatus = data;
     })
   }
 

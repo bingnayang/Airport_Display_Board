@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { DepartureBoard } from './departure-board';
 import { Airport } from './airport';
 import { AirportGate } from './airport-gate';
+import { DepartureStatus } from './departure-list/class/departure-status';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class DepartureBoardService {
   private baseURL = "http://localhost:8080/api/departures"
   private baseURLAirport = "http://localhost:8080/api/cities"
   private baseURLGate = "http://localhost:8080/api/gates"
+  private baseURLStatus = "http://localhost:8080/api/departureStatus"
 
   constructor(private httpClient: HttpClient) { }
 
@@ -41,5 +43,9 @@ export class DepartureBoardService {
 
   getAirportGateList(): Observable<AirportGate[]>{
     return this.httpClient.get<AirportGate[]>(`${this.baseURLGate}`)
+  }
+
+  getDepartureStatusList(): Observable<DepartureStatus[]>{
+    return this.httpClient.get<DepartureStatus[]>(`${this.baseURLStatus}`)
   }
 }

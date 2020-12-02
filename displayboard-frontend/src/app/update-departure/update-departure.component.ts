@@ -14,19 +14,14 @@ export class UpdateDepartureComponent implements OnInit {
   id: number;
   departure: DepartureBoard = new DepartureBoard();
   airportGate: AirportGate[];
-
-  status: DepartureStatus[] = [
-    {status: 'Delayed'},
-    {status: 'On-Time'},
-    {status: 'Cancelled'},
-    {status: 'Boarding'}
-  ]
+  departureStatus: DepartureStatus[];
 
   constructor(private departureService: DepartureBoardService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.getAirportGates();
+    this.getDepartureStatus();
     this.departureService.getDepartureById(this.id).subscribe(data => {
       this.departure = data;
     }, error => console.log(error));
@@ -47,5 +42,9 @@ export class UpdateDepartureComponent implements OnInit {
       this.airportGate = data;
     })
   }
-  
+  private getDepartureStatus(){
+    this.departureService.getDepartureStatusList().subscribe(data => {
+      this.departureStatus = data;
+    })
+  }
 }
