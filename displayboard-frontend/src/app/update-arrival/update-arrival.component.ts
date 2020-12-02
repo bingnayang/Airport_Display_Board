@@ -13,14 +13,7 @@ import { ArrivalStatus } from '../arrival-list/class/arrival-status';
 export class UpdateArrivalComponent implements OnInit {
   id: number;
   arrival: ArrivalBoard = new ArrivalBoard();
-
-  status: ArrivalStatus[] = [
-    {status: 'Delayed'},
-    {status: 'On-Time'},
-    {status: 'Cancelled'},
-    {status: 'Arrived'},
-    {status: 'Landing'}
-  ]
+  status: ArrivalStatus[];
 
   constructor(private arrivalService: ArrivalBoardService, private route: ActivatedRoute, private router: Router) { }
 

@@ -13,6 +13,7 @@ import { Airport } from '../airport';
 export class CreateArrivalComponent implements OnInit {
   arrival: ArrivalBoard = new ArrivalBoard();
   airportCity: Airport[];
+  status: ArrivalStatus[];
 
   private airlineFlight = new Map<string, string[]>([
     ['Alaska', ['AS4585', 'AS1047','AS3934','AS0475','AS7930']],
@@ -25,13 +26,13 @@ export class CreateArrivalComponent implements OnInit {
     ['United',['UA0857','UA2784','UA1746','UA7427','UA4729']]
   ])
 
-  status: ArrivalStatus[] = [
-    {status: 'Delayed'},
-    {status: 'On-Time'},
-    {status: 'Cancelled'},
-    {status: 'Arrived'},
-    {status: 'Landing'}
-  ]
+  // status: ArrivalStatus[] = [
+  //   {status: 'Delayed'},
+  //   {status: 'On-Time'},
+  //   {status: 'Cancelled'},
+  //   {status: 'Arrived'},
+  //   {status: 'Landing'}
+  // ]
 
   airline: string;
   flight: string;
@@ -40,6 +41,7 @@ export class CreateArrivalComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAirportCities();
+    this.getArrivalStatus();
   }
 
   saveArrival(){
@@ -51,6 +53,11 @@ export class CreateArrivalComponent implements OnInit {
   private getAirportCities(){
     this.arrivalService.getAirportCityList().subscribe(data => {
       this.airportCity = data;
+    })
+  }
+  private getArrivalStatus(){
+    this.arrivalService.getArrivalStatusList().subscribe(data => {
+      this.status = data;
     })
   }
 
