@@ -19,6 +19,7 @@ export class UpdateArrivalComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+    this.getArrivalStatus();
     this.arrivalService.getArrivalById(this.id).subscribe(data => {
       this.arrival = data;
     },error => console.log(error));
@@ -31,5 +32,10 @@ export class UpdateArrivalComponent implements OnInit {
   }
   goToArrivalList(){
     this.router.navigate([`/arrivals`])
+  }
+  private getArrivalStatus(){
+    this.arrivalService.getArrivalStatusList().subscribe(data => {
+      this.status = data;
+    })
   }
 }
