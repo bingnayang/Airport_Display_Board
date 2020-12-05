@@ -5,12 +5,14 @@ A full stack Airport Display Boarding web application using Spring Boot and Angu
 ###   Backend
 * Java
 * Spring Boot
-* Spring MVC
 * Spring Hibernate
-* MySQL
+
 ###   Frontend
 * Angular
 * Bootstrap
+
+### Database
+* MySQL
 
 ## Functionalities
 * View Departure and Arrival Board
